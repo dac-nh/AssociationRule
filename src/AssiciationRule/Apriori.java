@@ -147,4 +147,11 @@ public class Apriori {
             }
         }
     }
+
+    public int newKeyArray (Integer currentLength){
+        int result = GeneralConstant.RESULT_FAIL;
+        String[] keyArray = new String[]{};
+        result = GeneralConstant.RESULT_SUCCESS;
+        return result;
+    }
 }
