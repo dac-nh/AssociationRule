@@ -13,7 +13,7 @@ public class Apriori {
     private String[] stringArrayList;
     private double minimumSupport;
     private int recordsLength;
-    private int maximumLengthOfKey;
+    private int maximumLengthOfRecord = 0;
     // Main variable of function
     private Map<String, Integer> map = new Map<String, Integer>() {
         @Override
@@ -88,7 +88,7 @@ public class Apriori {
         int result = GeneralConstant.RESULT_FAIL;
         for (String record : records) {
             // get the largest Length of key
-            if (record.length() > this.maximumLengthOfKey) this.maximumLengthOfKey = record.length();
+            if (record.length() > this.maximumLengthOfRecord) this.maximumLengthOfRecord = record.length();
 
             String[] string = record.split("-");
             for (String key : string) {
@@ -111,7 +111,6 @@ public class Apriori {
         this.recordsLength = stringArrayList.length;
         // If records list is too short
         if (recordsLength == 1) return;
-        this.maximumLengthOfKey = 0;
 
         if (getListVariables(stringArrayList) == GeneralConstant.RESULT_FAIL) {
             return;
